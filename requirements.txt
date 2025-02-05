@@ -96,6 +96,10 @@ python-dotenv
 kafka-python
 six
 
+# Faker
+# Faker is a Python package that generates fake data for you.
+faker 
+
 # Alternative: pin the older version.
 # If you want to use the older version of kafka-python,
 # comment out the two lines above and uncomment the line below.
