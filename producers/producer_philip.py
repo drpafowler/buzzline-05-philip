@@ -141,13 +141,13 @@ def main() -> None:
         NUM_MACHINES = 5
         SENSORS_PER_MACHINE = 3
 
-        for machine_id in range(1, NUM_MACHINES + 1):
-            for sensor in range(1, SENSORS_PER_MACHINE + 1):
-                for message in generate_messages():
-                    message['machine_id'] = machine_id
-                    message['sensor_id'] = sensor
-                    logger.info(message)
+        while True:
+            for _ in range(NUM_MACHINES):
+                for _ in range(SENSORS_PER_MACHINE):
+                    message = next(generate_messages())
+                    logger.info(f"STEP 4. Generated message: {message}")
 
+                    # Write to file
                     with live_data_path.open("a") as f:
                         f.write(json.dumps(message) + "\n")
                         logger.info(f"STEP 4a Wrote message to file: {message}")

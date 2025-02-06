@@ -1,0 +1,11 @@
+{"machine_id": 84, "timestamp": 1738802069.7561145, "temperature": 50.56, "rpm": 2452, "widgets_produced": 140, "error_code": null, "conveyor_speed": 0.62, "product_quality": "Bad"}
+{"machine_id": 54, "timestamp": 1738802074.7564776, "temperature": 39.65, "rpm": 4016, "widgets_produced": 15, "error_code": "E303", "conveyor_speed": 1.32, "product_quality": "Good"}
+{"machine_id": 91, "timestamp": 1738802079.757029, "temperature": 63.59, "rpm": 1688, "widgets_produced": 4, "error_code": "E202", "conveyor_speed": 1.22, "product_quality": "Good"}
+{"machine_id": 51, "timestamp": 1738802084.757652, "temperature": 65.45, "rpm": 2188, "widgets_produced": 8, "error_code": null, "conveyor_speed": 1.53, "product_quality": "Good"}
+{"machine_id": 68, "timestamp": 1738802089.75811, "temperature": 22.83, "rpm": 2176, "widgets_produced": 59, "error_code": "E202", "conveyor_speed": 1.24, "product_quality": "Good"}
+{"machine_id": 93, "timestamp": 1738802094.7585537, "temperature": 77.55, "rpm": 3798, "widgets_produced": 101, "error_code": "E303", "conveyor_speed": 0.74, "product_quality": "Bad"}
+{"machine_id": 79, "timestamp": 1738802099.7590804, "temperature": 59.94, "rpm": 2260, "widgets_produced": 167, "error_code": "E101", "conveyor_speed": 1.63, "product_quality": "Bad"}
+{"machine_id": 38, "timestamp": 1738802104.7594767, "temperature": 33.77, "rpm": 3573, "widgets_produced": 98, "error_code": null, "conveyor_speed": 1.18, "product_quality": "Bad"}
+{"machine_id": 35, "timestamp": 1738802109.760003, "temperature": 32.4, "rpm": 3001, "widgets_produced": 74, "error_code": "E101", "conveyor_speed": 0.61, "product_quality": "Good"}
+{"machine_id": 49, "timestamp": 1738802114.7604501, "temperature": 21.19, "rpm": 2973, "widgets_produced": 105, "error_code": null, "conveyor_speed": 0.78, "product_quality": "Good"}
+{"machine_id": 7, "timestamp": 1738802119.7608426, "temperature": 60.31, "rpm": 3915, "widgets_produced": 66, "error_code": "E202", "conveyor_speed": 1.5, "product_quality": "Good"}

@@ -1415,3 +1415,79 @@
 2025-02-04 17:20:53.621 | ERROR    | __main__:main:164 - ERROR: Unexpected error: name 'machine_id' is not defined
 2025-02-04 17:20:53.621 | INFO     | __main__:main:168 - Kafka producer closed.
 2025-02-04 17:20:53.621 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
+2025-02-05 16:29:35.402 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-05 16:29:35.410 | INFO     | __main__:main:89 - Starting Producer to run continuously.
+2025-02-05 16:29:35.410 | INFO     | __main__:main:90 - Things can fail or get interrupted, so use a try block.
+2025-02-05 16:29:35.410 | INFO     | __main__:main:91 - Moved .env variables into a utils config module.
+2025-02-05 16:29:35.410 | INFO     | __main__:main:93 - STEP 1. Read required environment variables.
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-05 16:29:35.410 | INFO     | __main__:main:104 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-05 16:29:35.410 | INFO     | __main__:main:111 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-05 16:29:35.410 | INFO     | __main__:main:117 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-05 16:29:35.410 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-05 16:29:35.411 | ERROR    | utils.utils_producer:check_zookeeper_service_is_ready:50 - Error checking Zookeeper readiness: [Errno 111] Connection refused
+2025-02-05 16:29:35.411 | ERROR    | utils.utils_producer:verify_services:82 - Zookeeper is not ready. Please check your Zookeeper setup. Exiting...
+2025-02-05 16:34:28.705 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-05 16:34:28.714 | INFO     | __main__:main:89 - Starting Producer to run continuously.
+2025-02-05 16:34:28.714 | INFO     | __main__:main:90 - Things can fail or get interrupted, so use a try block.
+2025-02-05 16:34:28.714 | INFO     | __main__:main:91 - Moved .env variables into a utils config module.
+2025-02-05 16:34:28.714 | INFO     | __main__:main:93 - STEP 1. Read required environment variables.
+2025-02-05 16:34:28.714 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-05 16:34:28.714 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-05 16:34:28.714 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-05 16:34:28.714 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-05 16:34:28.715 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-05 16:34:28.715 | INFO     | __main__:main:104 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-05 16:34:28.715 | INFO     | __main__:main:111 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-05 16:34:28.715 | INFO     | __main__:main:117 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-05 16:34:28.715 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-05 16:34:28.716 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-05 16:34:28.716 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-05 16:34:29.032 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-05 16:34:29.135 | INFO     | __main__:main:126 - Kafka producer connected to 127.0.0.1:9092
+2025-02-05 16:34:29.135 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-05 16:34:29.443 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-05 16:34:29.443 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-05 16:34:29.755 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-05 16:34:29.756 | INFO     | __main__:main:134 - Kafka topic 'buzzline' is ready.
+2025-02-05 16:34:29.756 | INFO     | __main__:main:139 - STEP 5. Generate messages continuously.
+2025-02-05 16:34:29.756 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'error_code': None, 'conveyor_speed': 0.62, 'product_quality': 'Bad'}
+2025-02-05 16:34:29.756 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'error_code': None, 'conveyor_speed': 0.62, 'product_quality': 'Bad'}
+2025-02-05 16:34:29.756 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'error_code': None, 'conveyor_speed': 0.62, 'product_quality': 'Bad'}
+2025-02-05 16:34:34.756 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'error_code': 'E303', 'conveyor_speed': 1.32, 'product_quality': 'Good'}
+2025-02-05 16:34:34.756 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'error_code': 'E303', 'conveyor_speed': 1.32, 'product_quality': 'Good'}
+2025-02-05 16:34:34.756 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'error_code': 'E303', 'conveyor_speed': 1.32, 'product_quality': 'Good'}
+2025-02-05 16:34:39.757 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'error_code': 'E202', 'conveyor_speed': 1.22, 'product_quality': 'Good'}
+2025-02-05 16:34:39.757 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'error_code': 'E202', 'conveyor_speed': 1.22, 'product_quality': 'Good'}
+2025-02-05 16:34:39.757 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'error_code': 'E202', 'conveyor_speed': 1.22, 'product_quality': 'Good'}
+2025-02-05 16:34:44.757 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'error_code': None, 'conveyor_speed': 1.53, 'product_quality': 'Good'}
+2025-02-05 16:34:44.757 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'error_code': None, 'conveyor_speed': 1.53, 'product_quality': 'Good'}
+2025-02-05 16:34:44.758 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'error_code': None, 'conveyor_speed': 1.53, 'product_quality': 'Good'}
+2025-02-05 16:34:49.758 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'error_code': 'E202', 'conveyor_speed': 1.24, 'product_quality': 'Good'}
+2025-02-05 16:34:49.758 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'error_code': 'E202', 'conveyor_speed': 1.24, 'product_quality': 'Good'}
+2025-02-05 16:34:49.758 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'error_code': 'E202', 'conveyor_speed': 1.24, 'product_quality': 'Good'}
+2025-02-05 16:34:54.758 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'error_code': 'E303', 'conveyor_speed': 0.74, 'product_quality': 'Bad'}
+2025-02-05 16:34:54.758 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'error_code': 'E303', 'conveyor_speed': 0.74, 'product_quality': 'Bad'}
+2025-02-05 16:34:54.758 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'error_code': 'E303', 'conveyor_speed': 0.74, 'product_quality': 'Bad'}
+2025-02-05 16:34:59.759 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'error_code': 'E101', 'conveyor_speed': 1.63, 'product_quality': 'Bad'}
+2025-02-05 16:34:59.759 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'error_code': 'E101', 'conveyor_speed': 1.63, 'product_quality': 'Bad'}
+2025-02-05 16:34:59.759 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'error_code': 'E101', 'conveyor_speed': 1.63, 'product_quality': 'Bad'}
+2025-02-05 16:35:04.759 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'error_code': None, 'conveyor_speed': 1.18, 'product_quality': 'Bad'}
+2025-02-05 16:35:04.759 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'error_code': None, 'conveyor_speed': 1.18, 'product_quality': 'Bad'}
+2025-02-05 16:35:04.759 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'error_code': None, 'conveyor_speed': 1.18, 'product_quality': 'Bad'}
+2025-02-05 16:35:09.760 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'error_code': 'E101', 'conveyor_speed': 0.61, 'product_quality': 'Good'}
+2025-02-05 16:35:09.760 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'error_code': 'E101', 'conveyor_speed': 0.61, 'product_quality': 'Good'}
+2025-02-05 16:35:09.760 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'error_code': 'E101', 'conveyor_speed': 0.61, 'product_quality': 'Good'}
+2025-02-05 16:35:14.760 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'error_code': None, 'conveyor_speed': 0.78, 'product_quality': 'Good'}
+2025-02-05 16:35:14.760 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'error_code': None, 'conveyor_speed': 0.78, 'product_quality': 'Good'}
+2025-02-05 16:35:14.760 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'error_code': None, 'conveyor_speed': 0.78, 'product_quality': 'Good'}
+2025-02-05 16:35:19.760 | INFO     | __main__:main:148 - STEP 4. Generated message: {'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'error_code': 'E202', 'conveyor_speed': 1.5, 'product_quality': 'Good'}
+2025-02-05 16:35:19.761 | INFO     | __main__:main:153 - STEP 4a Wrote message to file: {'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'error_code': 'E202', 'conveyor_speed': 1.5, 'product_quality': 'Good'}
+2025-02-05 16:35:19.761 | INFO     | __main__:main:158 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'error_code': 'E202', 'conveyor_speed': 1.5, 'product_quality': 'Good'}
+2025-02-05 16:35:21.276 | WARNING  | __main__:main:163 - WARNING: Producer interrupted by user.
+2025-02-05 16:35:21.277 | INFO     | __main__:main:169 - Kafka producer closed.
+2025-02-05 16:35:21.277 | INFO     | __main__:main:170 - TRY/FINALLY: Producer shutting down.
