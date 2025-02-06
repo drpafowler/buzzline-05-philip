@@ -68,12 +68,19 @@ def generate_messages():
     json_message = {
         'machine_id': machine_id,
         'timestamp': time.time(),  # Unix timestamp
-        'temperature': round(random.uniform(20, 80), 2), # Example: 20-80 degrees C
-        'rpm': random.randint(1000, 5000),  # Example RPM range
+        'temperature': round(random.choices(
+            population=[random.uniform(50, 60), random.uniform(20, 49.99), random.uniform(60.01, 80)],
+            weights=[0.95, 0.025, 0.025],
+            k=1)[0], 2),
+        'rpm': random.choices(
+            population=[random.randint(4000, 5000), random.randint(1000, 3999)],
+            weights=[0.95, 0.05],
+            k=1
+        )[0],
         'widgets_produced': random.randint(0, 200),
-        'error_code': random.choice([None, "E101", "E202", "E303"]),  # Or None for no error
-        'conveyor_speed': round(random.uniform(0.5, 2.0), 2),  # Meters per second
-        'product_quality': random.choice(["Good", "Bad"]),
+        'conveyor_speed': round(random.uniform(1.5, 2.0), 2),  # Meters per second
+        'product_quality': "Good" if random.random() < 0.95 else "Bad",  # 95% chance of being "Good"
+        'error_code': random.choice([None, "E101", "E202", "E303"]),  # Null is no error
     }
 
     yield json_message
@@ -142,9 +149,10 @@ def main() -> None:
         SENSORS_PER_MACHINE = 3
 
         while True:
-            for _ in range(NUM_MACHINES):
+            for machine_id in range(1, NUM_MACHINES + 1):
                 for _ in range(SENSORS_PER_MACHINE):
                     message = next(generate_messages())
+                    message['machine_id'] = machine_id  # Ensure the message has the correct machine_id
                     logger.info(f"STEP 4. Generated message: {message}")
 
                     # Write to file
@@ -158,6 +166,7 @@ def main() -> None:
                         logger.info(f"STEP 4b Sent message to Kafka topic '{topic}': {message}")
 
                     time.sleep(interval_secs)
+
 
     except KeyboardInterrupt:
         logger.warning("WARNING: Producer interrupted by user.")
