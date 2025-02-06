@@ -11,8 +11,7 @@ Example JSON message
 "widgets_produced": 74,
 "conveyor_speed": 1.96,
 "product_quality": "Good",
-"error_code": "E202"
-}
+"error_code": "E202"}
 
 
 Environment variables are in utils/utils_config module. 
