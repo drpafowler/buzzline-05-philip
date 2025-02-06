@@ -1,9 +1,11 @@
-# buzzline-05-case
+# buzzline-05-philip
 
 Nearly every streaming analytics system stores processed data somewhere for further analysis, historical reference, or integration with BI tools.
 
 In this example project, we incorporate a relational data store. 
 We use SQLite, but the example could be altered to work with MySQL, PostgreSQL, or MongoDB.
+
+The producer, producer_philip.py, writes messages to a Kafka topic.  The consumer, kafka_consumer_philip.py, reads messages from the Kafka topic and writes them to a SQLite database.  The file app.py is a simple script that reads from the SQLite database and places the data using a streamlit app in a browser.
 
 ## VS Code Extensions
 
@@ -72,13 +74,13 @@ Windows:
 
 ```shell
 .venv\Scripts\activate
-py -m producers.producer_case
+py -m producers.producer_philip
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m producers.producer_case
+python3 -m producers.producer_philip
 ```
 
 The producer will still work if Kafka is not available.
@@ -96,17 +98,13 @@ Use the commands below to activate .venv, and start the consumer.
 Windows:
 ```shell
 .venv\Scripts\activate
-py -m consumers.kafka_consumer_case
-OR
-py -m consumers.file_consumer_case
+py -m consumers.kafka_consumer_philip
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.kafka_consumer_case
-OR
-python3 -m consumers.file_consumer_case
+python3 -m consumers.kafka_consumer_philip
 ```
 
 ---

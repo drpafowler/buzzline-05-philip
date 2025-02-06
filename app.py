@@ -12,7 +12,7 @@ def load_data():
     df = pd.read_sql_query(query, conn)
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s', utc=True)
     conn.close()
-    return df.sort_values(by='timestamp', ascending=False).head(25)
+    return df.sort_values(by='timestamp', ascending=False).head(60)
 
 # Streamlit 
 st.set_page_config(layout="wide")
@@ -24,43 +24,40 @@ df = load_data()
 # Columns
 col1, col2, col3 = st.columns(3)
 
-# Line graph for temperature 
+# Bar chart for temperature 
 with col1:
-    st.subheader('Temperature Over Time')
+    st.subheader('Temperature by Machine')
     fig, ax = plt.subplots()
     for machine_id, group in df.groupby('machine_id'):
-        ax.plot(group['timestamp'], group['temperature'], label=f'Machine {machine_id}')
-    ax.set_xlabel('Time')
-    ax.set_ylabel('Temperature')
-    ax.legend()
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
-    plt.xticks(rotation=45)
+        latest_temp = group.sort_values('timestamp', ascending=False).iloc[0]['temperature']
+        color = 'green' if 50 <= latest_temp <= 60 else 'red'
+        ax.bar(machine_id, latest_temp, color=color)
+    ax.set_xlabel('Machine ID')
+    ax.set_ylabel('Current Temperature')
     st.pyplot(fig)
 
-# Line graph for RPM 
+# Bar Graph for RPM
 with col2:
-    st.subheader('RPM Over Time')
+    st.subheader('RPM by Machine')
     fig, ax = plt.subplots()
     for machine_id, group in df.groupby('machine_id'):
-        ax.plot(group['timestamp'], group['rpm'], label=f'Machine {machine_id}')
-    ax.set_xlabel('Time')
-    ax.set_ylabel('RPM')
-    ax.legend()
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
-    plt.xticks(rotation=45)
+        latest_rpm = group.sort_values('timestamp', ascending=False).iloc[0]['rpm']
+        color = 'green' if latest_rpm >= 4000 else 'red'
+        ax.bar(machine_id, latest_rpm, color=color)
+    ax.set_xlabel('Machine ID')
+    ax.set_ylabel('Current RPM')
     st.pyplot(fig)
 
-# Line graph for conveyor speed
+# Bar graph for conveyor speed with color coding
 with col3:
-    st.subheader('Conveyor Speed Over Time')
+    st.subheader('Conveyor Speed by Machine')
     fig, ax = plt.subplots()
     for machine_id, group in df.groupby('machine_id'):
-        ax.plot(group['timestamp'], group['conveyor_speed'], label=f'Machine {machine_id}')
-    ax.set_xlabel('Time')
-    ax.set_ylabel('Conveyor Speed')
-    ax.legend()
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
-    plt.xticks(rotation=45)
+        latest_speed = group.sort_values('timestamp', ascending=False).iloc[0]['conveyor_speed']
+        color = 'green' if 1.65 <= latest_speed <= 1.85 else 'red'
+        ax.bar(machine_id, latest_speed, color=color)
+    ax.set_xlabel('Machine ID')
+    ax.set_ylabel('Current Conveyor Speed')
     st.pyplot(fig)
 
 # Percent stacked bar chart
