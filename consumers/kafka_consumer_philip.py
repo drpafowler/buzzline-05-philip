@@ -1,21 +1,21 @@
 """
-kafka_consumer_case.py
+kafka_consumer_philip.py
 
 Consume json messages from a live data file. 
 Insert the processed messages into a database.
 
 Example JSON message
-{
-    "message": "I just shared a meme! It was amazing.",
-    "author": "Charlie",
-    "timestamp": "2025-01-29 14:35:20",
-    "category": "humor",
-    "sentiment": 0.87,
-    "keyword_mentioned": "meme",
-    "message_length": 42
+{"machine_id": 2,
+"timestamp": 1738803338.650943,
+"temperature": 50.56,
+"rpm": 4395,
+"widgets_produced": 74,
+"conveyor_speed": 1.96,
+"product_quality": "Good",
+"error_code": "E202"
 }
 
-Database functions are in consumers/db_sqlite_case.py.
+Database functions are in consumers/db_sqlite_philip.py.
 Environment variables are in utils/utils_config module. 
 """
 
@@ -36,7 +36,7 @@ import utils.utils_config as config
 from utils.utils_consumer import create_kafka_consumer
 from utils.utils_logger import logger
 from utils.utils_producer import verify_services, is_topic_available
-from .db_sqlite_case import init_db, insert_message
+from .db_sqlite_philip import init_db, insert_message
 
 #####################################
 # Function to process a single message
@@ -55,13 +55,14 @@ def process_message(message: dict) -> None:
     logger.info(f"   {message=}")
     try:
         processed_message = {
-            "message": message.get("message"),
-            "author": message.get("author"),
+            "machine_id": message.get("machine_id"),
             "timestamp": message.get("timestamp"),
-            "category": message.get("category"),
-            "sentiment": float(message.get("sentiment", 0.0)),
-            "keyword_mentioned": message.get("keyword_mentioned"),
-            "message_length": int(message.get("message_length", 0)),
+            "temperature": float(message.get("temperature", 0.0)),
+            "rpm": int(message.get("rpm", 0)),
+            "widgets_produced": int(message.get("widgets_produced", 0)),
+            "conveyor_speed": float(message.get("conveyor_speed", 0.0)),
+            "product_quality": message.get("product_quality"),
+            "error_code": message.get("error_code"),
         }
         logger.info(f"Processed message: {processed_message}")
         return processed_message

@@ -1616,3 +1616,981 @@
 2025-02-05 16:55:41.003 | WARNING  | __main__:main:172 - WARNING: Producer interrupted by user.
 2025-02-05 16:55:41.004 | INFO     | __main__:main:178 - Kafka producer closed.
 2025-02-05 16:55:41.004 | INFO     | __main__:main:179 - TRY/FINALLY: Producer shutting down.
+2025-02-06 07:44:15.514 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 07:44:15.523 | INFO     | __main__:main:97 - Starting Producer to run continuously.
+2025-02-06 07:44:15.523 | INFO     | __main__:main:98 - Things can fail or get interrupted, so use a try block.
+2025-02-06 07:44:15.523 | INFO     | __main__:main:99 - Moved .env variables into a utils config module.
+2025-02-06 07:44:15.523 | INFO     | __main__:main:101 - STEP 1. Read required environment variables.
+2025-02-06 07:44:15.523 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 07:44:15.523 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 07:44:15.523 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:44:15.523 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 07:44:15.523 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-06 07:44:15.524 | INFO     | __main__:main:112 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-06 07:44:15.524 | INFO     | __main__:main:117 - Deleted existing live data file.
+2025-02-06 07:44:15.524 | INFO     | __main__:main:119 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-06 07:44:15.524 | INFO     | __main__:main:125 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-06 07:44:15.524 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 07:44:15.524 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 07:44:15.524 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:44:15.841 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 07:44:15.944 | INFO     | __main__:main:134 - Kafka producer connected to 127.0.0.1:9092
+2025-02-06 07:44:15.944 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:44:16.251 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-06 07:44:16.252 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:44:16.567 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-06 07:44:16.567 | INFO     | __main__:main:142 - Kafka topic 'buzzline' is ready.
+2025-02-06 07:44:16.567 | INFO     | __main__:main:147 - STEP 5. Generate messages continuously.
+2025-02-06 07:44:16.567 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:16.567 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:16.567 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:21.568 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:21.568 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:21.568 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:26.568 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:26.568 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:26.568 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:31.569 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:31.569 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:31.569 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:36.569 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:36.570 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:36.570 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:41.570 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:41.570 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:41.570 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:46.571 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:46.571 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:46.571 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:44:51.571 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:44:51.572 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:44:51.572 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:44:56.572 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:56.572 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:44:56.572 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:01.573 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:01.573 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:01.573 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:01.735 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 07:45:01.735 | INFO     | __main__:main:164 - Starting Consumer to run continuously.
+2025-02-06 07:45:01.735 | INFO     | __main__:main:165 - Things can fail or get interrupted, so use a try block.
+2025-02-06 07:45:01.736 | INFO     | __main__:main:166 - Moved .env variables into a utils config module.
+2025-02-06 07:45:01.736 | INFO     | __main__:main:168 - STEP 1. Read environment variables using new config functions.
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 07:45:01.736 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite
+2025-02-06 07:45:01.736 | INFO     | __main__:main:175 - SUCCESS: Read environment variables.
+2025-02-06 07:45:01.736 | INFO     | __main__:main:180 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-06 07:45:01.736 | INFO     | __main__:main:184 - SUCCESS: Deleted database file.
+2025-02-06 07:45:01.736 | INFO     | __main__:main:189 - STEP 3. Initialize a new database with an empty table.
+2025-02-06 07:45:01.736 | INFO     | consumers.db_sqlite_case:init_db:48 - Calling SQLite init_db() with {db_path=}.
+2025-02-06 07:45:01.736 | INFO     | consumers.db_sqlite_case:init_db:55 - SUCCESS: Got a cursor to execute SQL.
+2025-02-06 07:45:01.756 | INFO     | consumers.db_sqlite_case:init_db:74 - SUCCESS: Database initialized and table ready at /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite.
+2025-02-06 07:45:01.756 | INFO     | __main__:main:196 - STEP 4. Begin consuming and storing messages.
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:97 - Called consume_messages_from_kafka() with:
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:98 -    topic='buzzline'
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:99 -    kafka_url='127.0.0.1:9092'
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:100 -    group='buzz_group'
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:101 -    sql_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:102 -    interval_secs=5
+2025-02-06 07:45:01.756 | INFO     | __main__:consume_messages_from_kafka:104 - Step 1. Verify Kafka Services.
+2025-02-06 07:45:01.756 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 07:45:01.757 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 07:45:01.757 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:45:02.064 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 07:45:02.064 | INFO     | __main__:consume_messages_from_kafka:111 - Step 2. Create a Kafka consumer.
+2025-02-06 07:45:02.064 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:45:02.064 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-06 07:45:02.166 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-06 07:45:02.166 | INFO     | __main__:consume_messages_from_kafka:122 - Step 3. Verify topic exists.
+2025-02-06 07:45:02.166 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 07:45:02.472 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-06 07:45:02.472 | INFO     | __main__:consume_messages_from_kafka:126 - Kafka topic 'buzzline' is ready.
+2025-02-06 07:45:02.472 | INFO     | __main__:consume_messages_from_kafka:133 - Step 4. Process messages.
+2025-02-06 07:45:02.597 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.597 | INFO     | __main__:process_message:55 -    message={'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'error_code': None, 'conveyor_speed': 0.62, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.597 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'conveyor_speed': 0.62, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.597 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.597 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 84, 'timestamp': 1738802069.7561145, 'temperature': 50.56, 'rpm': 2452, 'widgets_produced': 140, 'conveyor_speed': 0.62, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.597 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'error_code': 'E303', 'conveyor_speed': 1.32, 'product_quality': 'Good'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'conveyor_speed': 1.32, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 54, 'timestamp': 1738802074.7564776, 'temperature': 39.65, 'rpm': 4016, 'widgets_produced': 15, 'conveyor_speed': 1.32, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'error_code': 'E202', 'conveyor_speed': 1.22, 'product_quality': 'Good'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'conveyor_speed': 1.22, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 91, 'timestamp': 1738802079.757029, 'temperature': 63.59, 'rpm': 1688, 'widgets_produced': 4, 'conveyor_speed': 1.22, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'error_code': None, 'conveyor_speed': 1.53, 'product_quality': 'Good'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 51, 'timestamp': 1738802084.757652, 'temperature': 65.45, 'rpm': 2188, 'widgets_produced': 8, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'error_code': 'E202', 'conveyor_speed': 1.24, 'product_quality': 'Good'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'conveyor_speed': 1.24, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 68, 'timestamp': 1738802089.75811, 'temperature': 22.83, 'rpm': 2176, 'widgets_produced': 59, 'conveyor_speed': 1.24, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'error_code': 'E303', 'conveyor_speed': 0.74, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'conveyor_speed': 0.74, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 93, 'timestamp': 1738802094.7585537, 'temperature': 77.55, 'rpm': 3798, 'widgets_produced': 101, 'conveyor_speed': 0.74, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'error_code': 'E101', 'conveyor_speed': 1.63, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'conveyor_speed': 1.63, 'product_quality': 'Bad', 'error_code': 'E101'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 79, 'timestamp': 1738802099.7590804, 'temperature': 59.94, 'rpm': 2260, 'widgets_produced': 167, 'conveyor_speed': 1.63, 'product_quality': 'Bad', 'error_code': 'E101'}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.598 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:55 -    message={'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'error_code': None, 'conveyor_speed': 1.18, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.598 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'conveyor_speed': 1.18, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 38, 'timestamp': 1738802104.7594767, 'temperature': 33.77, 'rpm': 3573, 'widgets_produced': 98, 'conveyor_speed': 1.18, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.598 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'error_code': 'E101', 'conveyor_speed': 0.61, 'product_quality': 'Good'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'conveyor_speed': 0.61, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 35, 'timestamp': 1738802109.760003, 'temperature': 32.4, 'rpm': 3001, 'widgets_produced': 74, 'conveyor_speed': 0.61, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'error_code': None, 'conveyor_speed': 0.78, 'product_quality': 'Good'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'conveyor_speed': 0.78, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 49, 'timestamp': 1738802114.7604501, 'temperature': 21.19, 'rpm': 2973, 'widgets_produced': 105, 'conveyor_speed': 0.78, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'error_code': 'E202', 'conveyor_speed': 1.5, 'product_quality': 'Good'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 7, 'timestamp': 1738802119.7608426, 'temperature': 60.31, 'rpm': 3915, 'widgets_produced': 66, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802679.2087557, 'temperature': 62.55, 'rpm': 1524, 'widgets_produced': 192, 'error_code': 'E303', 'conveyor_speed': 0.76, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802679.2087557, 'temperature': 62.55, 'rpm': 1524, 'widgets_produced': 192, 'conveyor_speed': 0.76, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802679.2087557, 'temperature': 62.55, 'rpm': 1524, 'widgets_produced': 192, 'conveyor_speed': 0.76, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802684.2090924, 'temperature': 63.75, 'rpm': 1145, 'widgets_produced': 95, 'error_code': None, 'conveyor_speed': 1.89, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802684.2090924, 'temperature': 63.75, 'rpm': 1145, 'widgets_produced': 95, 'conveyor_speed': 1.89, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802684.2090924, 'temperature': 63.75, 'rpm': 1145, 'widgets_produced': 95, 'conveyor_speed': 1.89, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802689.209564, 'temperature': 72.51, 'rpm': 4973, 'widgets_produced': 47, 'error_code': 'E202', 'conveyor_speed': 1.7, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802689.209564, 'temperature': 72.51, 'rpm': 4973, 'widgets_produced': 47, 'conveyor_speed': 1.7, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802689.209564, 'temperature': 72.51, 'rpm': 4973, 'widgets_produced': 47, 'conveyor_speed': 1.7, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738802694.2100117, 'temperature': 76.71, 'rpm': 1764, 'widgets_produced': 68, 'error_code': 'E202', 'conveyor_speed': 1.64, 'product_quality': 'Good'}
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738802694.2100117, 'temperature': 76.71, 'rpm': 1764, 'widgets_produced': 68, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738802694.2100117, 'temperature': 76.71, 'rpm': 1764, 'widgets_produced': 68, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.599 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.599 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.599 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738802699.2107284, 'temperature': 39.98, 'rpm': 3820, 'widgets_produced': 40, 'error_code': 'E101', 'conveyor_speed': 0.58, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738802699.2107284, 'temperature': 39.98, 'rpm': 3820, 'widgets_produced': 40, 'conveyor_speed': 0.58, 'product_quality': 'Bad', 'error_code': 'E101'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738802699.2107284, 'temperature': 39.98, 'rpm': 3820, 'widgets_produced': 40, 'conveyor_speed': 0.58, 'product_quality': 'Bad', 'error_code': 'E101'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738802704.2111502, 'temperature': 67.56, 'rpm': 4269, 'widgets_produced': 45, 'error_code': None, 'conveyor_speed': 1.83, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738802704.2111502, 'temperature': 67.56, 'rpm': 4269, 'widgets_produced': 45, 'conveyor_speed': 1.83, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738802704.2111502, 'temperature': 67.56, 'rpm': 4269, 'widgets_produced': 45, 'conveyor_speed': 1.83, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738802709.2118263, 'temperature': 41.1, 'rpm': 2689, 'widgets_produced': 77, 'error_code': 'E303', 'conveyor_speed': 0.98, 'product_quality': 'Good'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738802709.2118263, 'temperature': 41.1, 'rpm': 2689, 'widgets_produced': 77, 'conveyor_speed': 0.98, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738802709.2118263, 'temperature': 41.1, 'rpm': 2689, 'widgets_produced': 77, 'conveyor_speed': 0.98, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738802714.2122939, 'temperature': 33.13, 'rpm': 4271, 'widgets_produced': 140, 'error_code': 'E101', 'conveyor_speed': 1.66, 'product_quality': 'Good'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738802714.2122939, 'temperature': 33.13, 'rpm': 4271, 'widgets_produced': 140, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738802714.2122939, 'temperature': 33.13, 'rpm': 4271, 'widgets_produced': 140, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738802719.2130127, 'temperature': 72.81, 'rpm': 1677, 'widgets_produced': 97, 'error_code': 'E303', 'conveyor_speed': 1.71, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738802719.2130127, 'temperature': 72.81, 'rpm': 1677, 'widgets_produced': 97, 'conveyor_speed': 1.71, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738802719.2130127, 'temperature': 72.81, 'rpm': 1677, 'widgets_produced': 97, 'conveyor_speed': 1.71, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738802724.2138662, 'temperature': 27.14, 'rpm': 1476, 'widgets_produced': 156, 'error_code': 'E202', 'conveyor_speed': 1.48, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738802724.2138662, 'temperature': 27.14, 'rpm': 1476, 'widgets_produced': 156, 'conveyor_speed': 1.48, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738802724.2138662, 'temperature': 27.14, 'rpm': 1476, 'widgets_produced': 156, 'conveyor_speed': 1.48, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738802729.2143958, 'temperature': 20.18, 'rpm': 3167, 'widgets_produced': 189, 'error_code': 'E303', 'conveyor_speed': 1.05, 'product_quality': 'Good'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738802729.2143958, 'temperature': 20.18, 'rpm': 3167, 'widgets_produced': 189, 'conveyor_speed': 1.05, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738802729.2143958, 'temperature': 20.18, 'rpm': 3167, 'widgets_produced': 189, 'conveyor_speed': 1.05, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.600 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738802734.2149045, 'temperature': 69.07, 'rpm': 1857, 'widgets_produced': 83, 'error_code': 'E303', 'conveyor_speed': 0.93, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.600 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738802734.2149045, 'temperature': 69.07, 'rpm': 1857, 'widgets_produced': 83, 'conveyor_speed': 0.93, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738802734.2149045, 'temperature': 69.07, 'rpm': 1857, 'widgets_produced': 83, 'conveyor_speed': 0.93, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.600 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 5, 'timestamp': 1738802739.2154887, 'temperature': 78.54, 'rpm': 4072, 'widgets_produced': 170, 'error_code': 'E303', 'conveyor_speed': 1.28, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 5, 'timestamp': 1738802739.2154887, 'temperature': 78.54, 'rpm': 4072, 'widgets_produced': 170, 'conveyor_speed': 1.28, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 5, 'timestamp': 1738802739.2154887, 'temperature': 78.54, 'rpm': 4072, 'widgets_produced': 170, 'conveyor_speed': 1.28, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 5, 'timestamp': 1738802744.2158725, 'temperature': 36.26, 'rpm': 2776, 'widgets_produced': 198, 'error_code': 'E303', 'conveyor_speed': 1.19, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 5, 'timestamp': 1738802744.2158725, 'temperature': 36.26, 'rpm': 2776, 'widgets_produced': 198, 'conveyor_speed': 1.19, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 5, 'timestamp': 1738802744.2158725, 'temperature': 36.26, 'rpm': 2776, 'widgets_produced': 198, 'conveyor_speed': 1.19, 'product_quality': 'Bad', 'error_code': 'E303'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 5, 'timestamp': 1738802749.2163665, 'temperature': 46.61, 'rpm': 1739, 'widgets_produced': 128, 'error_code': 'E202', 'conveyor_speed': 1.88, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 5, 'timestamp': 1738802749.2163665, 'temperature': 46.61, 'rpm': 1739, 'widgets_produced': 128, 'conveyor_speed': 1.88, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 5, 'timestamp': 1738802749.2163665, 'temperature': 46.61, 'rpm': 1739, 'widgets_produced': 128, 'conveyor_speed': 1.88, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802754.2171154, 'temperature': 47.96, 'rpm': 3485, 'widgets_produced': 4, 'error_code': None, 'conveyor_speed': 0.57, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802754.2171154, 'temperature': 47.96, 'rpm': 3485, 'widgets_produced': 4, 'conveyor_speed': 0.57, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802754.2171154, 'temperature': 47.96, 'rpm': 3485, 'widgets_produced': 4, 'conveyor_speed': 0.57, 'product_quality': 'Bad', 'error_code': None}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802759.217537, 'temperature': 31.93, 'rpm': 3195, 'widgets_produced': 37, 'error_code': 'E202', 'conveyor_speed': 1.75, 'product_quality': 'Good'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802759.217537, 'temperature': 31.93, 'rpm': 3195, 'widgets_produced': 37, 'conveyor_speed': 1.75, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802759.217537, 'temperature': 31.93, 'rpm': 3195, 'widgets_produced': 37, 'conveyor_speed': 1.75, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738802764.218005, 'temperature': 25.44, 'rpm': 3833, 'widgets_produced': 34, 'error_code': 'E202', 'conveyor_speed': 1.42, 'product_quality': 'Bad'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738802764.218005, 'temperature': 25.44, 'rpm': 3833, 'widgets_produced': 34, 'conveyor_speed': 1.42, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738802764.218005, 'temperature': 25.44, 'rpm': 3833, 'widgets_produced': 34, 'conveyor_speed': 1.42, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.601 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738802769.2186983, 'temperature': 46.02, 'rpm': 4682, 'widgets_produced': 137, 'error_code': 'E101', 'conveyor_speed': 1.79, 'product_quality': 'Good'}
+2025-02-06 07:45:02.601 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738802769.2186983, 'temperature': 46.02, 'rpm': 4682, 'widgets_produced': 137, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.601 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738802769.2186983, 'temperature': 46.02, 'rpm': 4682, 'widgets_produced': 137, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738803323.6496098, 'temperature': 57.91, 'rpm': 4780, 'widgets_produced': 177, 'conveyor_speed': 1.74, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738803323.6496098, 'temperature': 57.91, 'rpm': 4780, 'widgets_produced': 177, 'conveyor_speed': 1.74, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738803323.6496098, 'temperature': 57.91, 'rpm': 4780, 'widgets_produced': 177, 'conveyor_speed': 1.74, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738803328.6500046, 'temperature': 57.86, 'rpm': 4316, 'widgets_produced': 115, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738803328.6500046, 'temperature': 57.86, 'rpm': 4316, 'widgets_produced': 115, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738803328.6500046, 'temperature': 57.86, 'rpm': 4316, 'widgets_produced': 115, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738803333.650497, 'temperature': 51.11, 'rpm': 4120, 'widgets_produced': 46, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738803333.650497, 'temperature': 51.11, 'rpm': 4120, 'widgets_produced': 46, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738803333.650497, 'temperature': 51.11, 'rpm': 4120, 'widgets_produced': 46, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738803338.650943, 'temperature': 50.56, 'rpm': 4395, 'widgets_produced': 74, 'conveyor_speed': 1.96, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738803338.650943, 'temperature': 50.56, 'rpm': 4395, 'widgets_produced': 74, 'conveyor_speed': 1.96, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738803338.650943, 'temperature': 50.56, 'rpm': 4395, 'widgets_produced': 74, 'conveyor_speed': 1.96, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738856656.5675282, 'temperature': 51.97, 'rpm': 4926, 'widgets_produced': 107, 'conveyor_speed': 1.53, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738856661.5681133, 'temperature': 57.55, 'rpm': 4768, 'widgets_produced': 92, 'conveyor_speed': 1.95, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738856666.5685916, 'temperature': 51.06, 'rpm': 4147, 'widgets_produced': 24, 'conveyor_speed': 1.93, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738856671.5690928, 'temperature': 50.11, 'rpm': 4149, 'widgets_produced': 68, 'conveyor_speed': 1.92, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.602 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.602 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.602 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738856676.5697842, 'temperature': 51.9, 'rpm': 4362, 'widgets_produced': 67, 'conveyor_speed': 1.54, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 2, 'timestamp': 1738856681.5704024, 'temperature': 51.39, 'rpm': 4736, 'widgets_produced': 45, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738856686.5710242, 'temperature': 58.7, 'rpm': 4987, 'widgets_produced': 148, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738856691.5718093, 'temperature': 56.18, 'rpm': 4211, 'widgets_produced': 40, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 3, 'timestamp': 1738856696.5723345, 'temperature': 59.12, 'rpm': 4557, 'widgets_produced': 32, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738856701.5731108, 'temperature': 55.54, 'rpm': 4180, 'widgets_produced': 74, 'conveyor_speed': 1.88, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:02.603 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:02.603 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:06.573 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.574 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.574 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.575 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:06.576 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.576 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.576 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:06.576 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738856706.5738506, 'temperature': 55.56, 'rpm': 4618, 'widgets_produced': 37, 'conveyor_speed': 1.5, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:06.576 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:06.576 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:11.574 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.574 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.574 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.576 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 07:45:11.576 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.576 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.576 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 07:45:11.576 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 07:45:11.576 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 07:45:11.576 | ERROR    | consumers.db_sqlite_case:insert_message:119 - ERROR: Failed to insert message into the database: 'message'
+2025-02-06 07:45:11.832 | WARNING  | __main__:main:202 - Consumer interrupted by user.
+2025-02-06 07:45:11.833 | INFO     | __main__:main:206 - Consumer shutting down.
+2025-02-06 07:45:16.574 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:16.575 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:16.575 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 07:45:21.575 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:21.575 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:21.575 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 07:45:25.657 | WARNING  | __main__:main:173 - WARNING: Producer interrupted by user.
+2025-02-06 07:45:25.658 | INFO     | __main__:main:179 - Kafka producer closed.
+2025-02-06 07:45:25.658 | INFO     | __main__:main:180 - TRY/FINALLY: Producer shutting down.
+2025-02-06 08:31:03.589 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 08:31:03.598 | INFO     | __main__:main:97 - Starting Producer to run continuously.
+2025-02-06 08:31:03.598 | INFO     | __main__:main:98 - Things can fail or get interrupted, so use a try block.
+2025-02-06 08:31:03.598 | INFO     | __main__:main:99 - Moved .env variables into a utils config module.
+2025-02-06 08:31:03.598 | INFO     | __main__:main:101 - STEP 1. Read required environment variables.
+2025-02-06 08:31:03.598 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 08:31:03.598 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 08:31:03.598 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:03.599 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 08:31:03.599 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-06 08:31:03.599 | INFO     | __main__:main:112 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-06 08:31:03.599 | INFO     | __main__:main:117 - Deleted existing live data file.
+2025-02-06 08:31:03.599 | INFO     | __main__:main:119 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-06 08:31:03.599 | INFO     | __main__:main:125 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-06 08:31:03.599 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 08:31:03.599 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 08:31:03.599 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:03.906 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 08:31:04.009 | INFO     | __main__:main:134 - Kafka producer connected to 127.0.0.1:9092
+2025-02-06 08:31:04.009 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:04.316 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-06 08:31:04.316 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:04.624 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-06 08:31:04.624 | INFO     | __main__:main:142 - Kafka topic 'buzzline' is ready.
+2025-02-06 08:31:04.624 | INFO     | __main__:main:147 - STEP 5. Generate messages continuously.
+2025-02-06 08:31:04.624 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:04.625 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:04.625 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:08.710 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 08:31:08.712 | INFO     | __main__:main:164 - Starting Consumer to run continuously.
+2025-02-06 08:31:08.712 | INFO     | __main__:main:165 - Things can fail or get interrupted, so use a try block.
+2025-02-06 08:31:08.712 | INFO     | __main__:main:166 - Moved .env variables into a utils config module.
+2025-02-06 08:31:08.712 | INFO     | __main__:main:168 - STEP 1. Read environment variables using new config functions.
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 08:31:08.712 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite
+2025-02-06 08:31:08.712 | INFO     | __main__:main:175 - SUCCESS: Read environment variables.
+2025-02-06 08:31:08.712 | INFO     | __main__:main:180 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-06 08:31:08.712 | INFO     | __main__:main:189 - STEP 3. Initialize a new database with an empty table.
+2025-02-06 08:31:08.712 | INFO     | consumers.db_sqlite_case:init_db:48 - Calling SQLite init_db() with {db_path=}.
+2025-02-06 08:31:08.712 | INFO     | consumers.db_sqlite_case:init_db:55 - SUCCESS: Got a cursor to execute SQL.
+2025-02-06 08:31:08.731 | INFO     | consumers.db_sqlite_case:init_db:74 - SUCCESS: Database initialized and table ready at /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite.
+2025-02-06 08:31:08.731 | INFO     | __main__:main:196 - STEP 4. Begin consuming and storing messages.
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:97 - Called consume_messages_from_kafka() with:
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:98 -    topic='buzzline'
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:99 -    kafka_url='127.0.0.1:9092'
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:100 -    group='buzz_group'
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:101 -    sql_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:102 -    interval_secs=5
+2025-02-06 08:31:08.731 | INFO     | __main__:consume_messages_from_kafka:104 - Step 1. Verify Kafka Services.
+2025-02-06 08:31:08.731 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 08:31:08.731 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 08:31:08.732 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:09.038 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 08:31:09.038 | INFO     | __main__:consume_messages_from_kafka:111 - Step 2. Create a Kafka consumer.
+2025-02-06 08:31:09.038 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:09.038 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-06 08:31:09.140 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-06 08:31:09.140 | INFO     | __main__:consume_messages_from_kafka:122 - Step 3. Verify topic exists.
+2025-02-06 08:31:09.140 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:09.446 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-06 08:31:09.446 | INFO     | __main__:consume_messages_from_kafka:126 - Kafka topic 'buzzline' is ready.
+2025-02-06 08:31:09.446 | INFO     | __main__:consume_messages_from_kafka:133 - Step 4. Process messages.
+2025-02-06 08:31:09.552 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:09.552 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:31:09.552 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:31:09.552 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:09.552 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 4, 'timestamp': 1738856711.5743034, 'temperature': 52.27, 'rpm': 4397, 'widgets_produced': 107, 'conveyor_speed': 1.66, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:31:09.552 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:09.553 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:55 -    message={'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 5, 'timestamp': 1738856716.574773, 'temperature': 51.4, 'rpm': 4638, 'widgets_produced': 173, 'conveyor_speed': 1.68, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:09.553 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:55 -    message={'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 5, 'timestamp': 1738856721.5752294, 'temperature': 50.52, 'rpm': 4837, 'widgets_produced': 80, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:09.553 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738859464.624919, 'temperature': 56.58, 'rpm': 4352, 'widgets_produced': 17, 'conveyor_speed': 1.94, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.553 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:09.553 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:09.625 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.625 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.625 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.627 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:09.627 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.627 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.627 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:09.627 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738859469.6252787, 'temperature': 51.26, 'rpm': 4792, 'widgets_produced': 70, 'conveyor_speed': 1.78, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:09.627 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:09.628 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:14.626 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.626 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.626 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.628 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:14.628 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.628 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.628 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:14.628 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738859474.6260073, 'temperature': 52.31, 'rpm': 4102, 'widgets_produced': 198, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:14.628 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:14.628 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:15.902 | WARNING  | __main__:main:173 - WARNING: Producer interrupted by user.
+2025-02-06 08:31:15.903 | INFO     | __main__:main:179 - Kafka producer closed.
+2025-02-06 08:31:15.903 | INFO     | __main__:main:180 - TRY/FINALLY: Producer shutting down.
+2025-02-06 08:31:56.018 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 08:31:56.027 | INFO     | __main__:main:97 - Starting Producer to run continuously.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:98 - Things can fail or get interrupted, so use a try block.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:99 - Moved .env variables into a utils config module.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:101 - STEP 1. Read required environment variables.
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-06 08:31:56.027 | INFO     | __main__:main:112 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:117 - Deleted existing live data file.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:119 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-06 08:31:56.027 | INFO     | __main__:main:125 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 08:31:56.027 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 08:31:56.027 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:56.333 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 08:31:56.436 | INFO     | __main__:main:134 - Kafka producer connected to 127.0.0.1:9092
+2025-02-06 08:31:56.436 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:56.742 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-06 08:31:56.742 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:31:57.048 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-06 08:31:57.048 | INFO     | __main__:main:142 - Kafka topic 'buzzline' is ready.
+2025-02-06 08:31:57.049 | INFO     | __main__:main:147 - STEP 5. Generate messages continuously.
+2025-02-06 08:31:57.049 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.049 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.049 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.051 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:31:57.051 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.051 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.051 | INFO     | consumers.db_sqlite_case:insert_message:92 - Calling SQLite insert_message() with:
+2025-02-06 08:31:57.051 | INFO     | consumers.db_sqlite_case:insert_message:93 - message={'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:31:57.051 | INFO     | consumers.db_sqlite_case:insert_message:94 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:31:57.052 | ERROR    | consumers.db_sqlite_case:insert_message:120 - ERROR: Failed to insert message into the database: table streamed_messages has no column named machine_id
+2025-02-06 08:31:58.760 | WARNING  | __main__:main:202 - Consumer interrupted by user.
+2025-02-06 08:31:58.861 | INFO     | __main__:main:206 - Consumer shutting down.
+2025-02-06 08:32:00.473 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 08:32:00.474 | INFO     | __main__:main:164 - Starting Consumer to run continuously.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:165 - Things can fail or get interrupted, so use a try block.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:166 - Moved .env variables into a utils config module.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:168 - STEP 1. Read environment variables using new config functions.
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 08:32:00.474 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite
+2025-02-06 08:32:00.474 | INFO     | __main__:main:175 - SUCCESS: Read environment variables.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:180 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:184 - SUCCESS: Deleted database file.
+2025-02-06 08:32:00.474 | INFO     | __main__:main:189 - STEP 3. Initialize a new database with an empty table.
+2025-02-06 08:32:00.474 | INFO     | consumers.db_sqlite_case:init_db:48 - Calling SQLite init_db() with {db_path=}.
+2025-02-06 08:32:00.474 | INFO     | consumers.db_sqlite_case:init_db:55 - SUCCESS: Got a cursor to execute SQL.
+2025-02-06 08:32:00.500 | INFO     | consumers.db_sqlite_case:init_db:75 - SUCCESS: Database initialized and table ready at /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite.
+2025-02-06 08:32:00.500 | INFO     | __main__:main:196 - STEP 4. Begin consuming and storing messages.
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:97 - Called consume_messages_from_kafka() with:
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:98 -    topic='buzzline'
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:99 -    kafka_url='127.0.0.1:9092'
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:100 -    group='buzz_group'
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:101 -    sql_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:102 -    interval_secs=5
+2025-02-06 08:32:00.500 | INFO     | __main__:consume_messages_from_kafka:104 - Step 1. Verify Kafka Services.
+2025-02-06 08:32:00.500 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 08:32:00.501 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 08:32:00.501 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:32:00.807 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 08:32:00.807 | INFO     | __main__:consume_messages_from_kafka:111 - Step 2. Create a Kafka consumer.
+2025-02-06 08:32:00.807 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:32:00.807 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-06 08:32:00.909 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-06 08:32:00.909 | INFO     | __main__:consume_messages_from_kafka:122 - Step 3. Verify topic exists.
+2025-02-06 08:32:00.909 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 08:32:01.215 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-06 08:32:01.215 | INFO     | __main__:consume_messages_from_kafka:126 - Kafka topic 'buzzline' is ready.
+2025-02-06 08:32:01.215 | INFO     | __main__:consume_messages_from_kafka:133 - Step 4. Process messages.
+2025-02-06 08:32:02.049 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:02.049 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:02.049 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:07.050 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.050 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.050 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.706 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:32:07.706 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:07.706 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:07.706 | INFO     | consumers.db_sqlite_case:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 08:32:07.706 | INFO     | consumers.db_sqlite_case:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738859517.0490563, 'temperature': 52.75, 'rpm': 1662, 'widgets_produced': 114, 'conveyor_speed': 1.52, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:07.706 | INFO     | consumers.db_sqlite_case:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:07.735 | INFO     | consumers.db_sqlite_case:insert_message:119 - Inserted one message into the database.
+2025-02-06 08:32:07.735 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:32:07.735 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:07.735 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:07.735 | INFO     | consumers.db_sqlite_case:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 08:32:07.735 | INFO     | consumers.db_sqlite_case:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738859522.0494251, 'temperature': 59.09, 'rpm': 4758, 'widgets_produced': 170, 'conveyor_speed': 1.65, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 08:32:07.735 | INFO     | consumers.db_sqlite_case:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:07.743 | INFO     | consumers.db_sqlite_case:insert_message:119 - Inserted one message into the database.
+2025-02-06 08:32:07.743 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:32:07.743 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.743 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.743 | INFO     | consumers.db_sqlite_case:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 08:32:07.743 | INFO     | consumers.db_sqlite_case:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738859527.0499732, 'temperature': 59.44, 'rpm': 4004, 'widgets_produced': 37, 'conveyor_speed': 1.97, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 08:32:07.743 | INFO     | consumers.db_sqlite_case:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:07.746 | INFO     | consumers.db_sqlite_case:insert_message:119 - Inserted one message into the database.
+2025-02-06 08:32:12.050 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.050 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.050 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.052 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:32:12.053 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.053 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.053 | INFO     | consumers.db_sqlite_case:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 08:32:12.053 | INFO     | consumers.db_sqlite_case:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738859532.0504432, 'temperature': 53.84, 'rpm': 4217, 'widgets_produced': 49, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 08:32:12.053 | INFO     | consumers.db_sqlite_case:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:12.064 | INFO     | consumers.db_sqlite_case:insert_message:119 - Inserted one message into the database.
+2025-02-06 08:32:17.051 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.051 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.051 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.053 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 08:32:17.053 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.053 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.053 | INFO     | consumers.db_sqlite_case:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 08:32:17.053 | INFO     | consumers.db_sqlite_case:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738859537.0512917, 'temperature': 53.84, 'rpm': 4912, 'widgets_produced': 152, 'conveyor_speed': 1.99, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 08:32:17.053 | INFO     | consumers.db_sqlite_case:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 08:32:17.067 | INFO     | consumers.db_sqlite_case:insert_message:119 - Inserted one message into the database.
+2025-02-06 08:32:18.105 | WARNING  | __main__:main:202 - Consumer interrupted by user.
+2025-02-06 08:32:18.105 | INFO     | __main__:main:206 - Consumer shutting down.
+2025-02-06 08:32:19.977 | WARNING  | __main__:main:173 - WARNING: Producer interrupted by user.
+2025-02-06 08:32:19.978 | INFO     | __main__:main:179 - Kafka producer closed.
+2025-02-06 08:32:19.978 | INFO     | __main__:main:180 - TRY/FINALLY: Producer shutting down.
+2025-02-06 09:04:07.849 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 09:04:07.858 | INFO     | __main__:main:97 - Starting Producer to run continuously.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:98 - Things can fail or get interrupted, so use a try block.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:99 - Moved .env variables into a utils config module.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:101 - STEP 1. Read required environment variables.
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-06 09:04:07.858 | INFO     | __main__:main:112 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:117 - Deleted existing live data file.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:119 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-06 09:04:07.858 | INFO     | __main__:main:125 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-06 09:04:07.858 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 09:04:07.859 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 09:04:07.859 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:08.165 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 09:04:08.267 | INFO     | __main__:main:134 - Kafka producer connected to 127.0.0.1:9092
+2025-02-06 09:04:08.268 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:08.573 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-06 09:04:08.573 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:08.880 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-06 09:04:08.880 | INFO     | __main__:main:142 - Kafka topic 'buzzline' is ready.
+2025-02-06 09:04:08.880 | INFO     | __main__:main:147 - STEP 5. Generate messages continuously.
+2025-02-06 09:04:08.880 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:08.881 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:08.881 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:11.072 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 09:04:11.073 | INFO     | __main__:main:164 - Starting Consumer to run continuously.
+2025-02-06 09:04:11.073 | INFO     | __main__:main:165 - Things can fail or get interrupted, so use a try block.
+2025-02-06 09:04:11.073 | INFO     | __main__:main:166 - Moved .env variables into a utils config module.
+2025-02-06 09:04:11.073 | INFO     | __main__:main:168 - STEP 1. Read environment variables using new config functions.
+2025-02-06 09:04:11.073 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-06 09:04:11.074 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:11.074 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-06 09:04:11.074 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 09:04:11.074 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 09:04:11.074 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite
+2025-02-06 09:04:11.074 | INFO     | __main__:main:175 - SUCCESS: Read environment variables.
+2025-02-06 09:04:11.074 | INFO     | __main__:main:180 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-06 09:04:11.074 | INFO     | __main__:main:184 - SUCCESS: Deleted database file.
+2025-02-06 09:04:11.074 | INFO     | __main__:main:189 - STEP 3. Initialize a new database with an empty table.
+2025-02-06 09:04:11.074 | INFO     | consumers.db_sqlite_philip:init_db:48 - Calling SQLite init_db() with {db_path=}.
+2025-02-06 09:04:11.074 | INFO     | consumers.db_sqlite_philip:init_db:55 - SUCCESS: Got a cursor to execute SQL.
+2025-02-06 09:04:11.098 | INFO     | consumers.db_sqlite_philip:init_db:75 - SUCCESS: Database initialized and table ready at /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite.
+2025-02-06 09:04:11.098 | INFO     | __main__:main:196 - STEP 4. Begin consuming and storing messages.
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:97 - Called consume_messages_from_kafka() with:
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:98 -    topic='buzzline'
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:99 -    kafka_url='127.0.0.1:9092'
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:100 -    group='buzz_group'
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:101 -    sql_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:102 -    interval_secs=5
+2025-02-06 09:04:11.098 | INFO     | __main__:consume_messages_from_kafka:104 - Step 1. Verify Kafka Services.
+2025-02-06 09:04:11.098 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: 127.0.0.1:2181
+2025-02-06 09:04:11.099 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at 127.0.0.1:2181.
+2025-02-06 09:04:11.099 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:11.404 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 09:04:11.404 | INFO     | __main__:consume_messages_from_kafka:111 - Step 2. Create a Kafka consumer.
+2025-02-06 09:04:11.404 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:11.404 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-06 09:04:11.505 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-06 09:04:11.505 | INFO     | __main__:consume_messages_from_kafka:122 - Step 3. Verify topic exists.
+2025-02-06 09:04:11.506 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: 127.0.0.1:9092
+2025-02-06 09:04:11.810 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-06 09:04:11.810 | INFO     | __main__:consume_messages_from_kafka:126 - Kafka topic 'buzzline' is ready.
+2025-02-06 09:04:11.810 | INFO     | __main__:consume_messages_from_kafka:133 - Step 4. Process messages.
+2025-02-06 09:04:11.915 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:11.915 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:11.915 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:11.915 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:11.915 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738861448.880901, 'temperature': 57.07, 'rpm': 4608, 'widgets_produced': 123, 'conveyor_speed': 1.59, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:11.915 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:11.936 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:13.881 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.881 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.881 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.883 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:13.883 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.883 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.883 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:13.883 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738861453.8813705, 'temperature': 52.89, 'rpm': 4086, 'widgets_produced': 71, 'conveyor_speed': 1.84, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:13.883 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:13.905 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:18.881 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.882 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.882 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.883 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:18.884 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.884 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.884 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:18.884 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738861458.881876, 'temperature': 51.34, 'rpm': 4598, 'widgets_produced': 137, 'conveyor_speed': 1.7, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:04:18.884 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:18.907 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:23.882 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.882 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.882 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.884 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:23.884 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.884 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.884 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:23.884 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738861463.8823059, 'temperature': 59.77, 'rpm': 2246, 'widgets_produced': 182, 'conveyor_speed': 1.61, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:23.884 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:23.906 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:28.883 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.883 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.883 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.885 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:28.885 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.885 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.885 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:28.885 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738861468.8829799, 'temperature': 53.15, 'rpm': 4672, 'widgets_produced': 54, 'conveyor_speed': 1.64, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:28.885 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:28.907 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:33.883 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.883 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.883 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.885 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:33.885 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.885 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.885 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:33.885 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738861473.8835948, 'temperature': 57.08, 'rpm': 4155, 'widgets_produced': 41, 'conveyor_speed': 1.89, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:04:33.885 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:33.907 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:38.884 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.884 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.884 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.886 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:38.886 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.886 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.886 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:38.886 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 3, 'timestamp': 1738861478.8842502, 'temperature': 57.01, 'rpm': 4793, 'widgets_produced': 66, 'conveyor_speed': 1.73, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:38.886 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:38.908 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:43.885 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.885 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.885 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.887 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:43.887 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.887 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.887 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:43.887 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 3, 'timestamp': 1738861483.885095, 'temperature': 54.41, 'rpm': 4202, 'widgets_produced': 93, 'conveyor_speed': 1.69, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:04:43.887 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:43.910 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:48.885 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.885 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.885 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline': {'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.887 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:04:48.887 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.887 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.887 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:04:48.887 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 3, 'timestamp': 1738861488.8855555, 'temperature': 58.98, 'rpm': 4814, 'widgets_produced': 134, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:04:48.887 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:04:48.909 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:04:49.978 | WARNING  | __main__:main:202 - Consumer interrupted by user.
+2025-02-06 09:04:49.979 | INFO     | __main__:main:206 - Consumer shutting down.
+2025-02-06 09:04:51.379 | WARNING  | __main__:main:173 - WARNING: Producer interrupted by user.
+2025-02-06 09:04:51.379 | INFO     | __main__:main:179 - Kafka producer closed.
+2025-02-06 09:04:51.379 | INFO     | __main__:main:180 - TRY/FINALLY: Producer shutting down.
+2025-02-06 09:16:45.361 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 09:16:45.370 | INFO     | __main__:main:97 - Starting Producer to run continuously.
+2025-02-06 09:16:45.370 | INFO     | __main__:main:98 - Things can fail or get interrupted, so use a try block.
+2025-02-06 09:16:45.370 | INFO     | __main__:main:99 - Moved .env variables into a utils config module.
+2025-02-06 09:16:45.370 | INFO     | __main__:main:101 - STEP 1. Read required environment variables.
+2025-02-06 09:16:45.370 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 09:16:45.370 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline_db
+2025-02-06 09:16:45.371 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:45.371 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 09:16:45.371 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/project_live.json
+2025-02-06 09:16:45.371 | INFO     | __main__:main:112 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-06 09:16:45.371 | INFO     | __main__:main:117 - Deleted existing live data file.
+2025-02-06 09:16:45.371 | INFO     | __main__:main:119 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-06 09:16:45.371 | INFO     | __main__:main:125 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-06 09:16:45.371 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: localhost:2181
+2025-02-06 09:16:45.371 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at localhost:2181.
+2025-02-06 09:16:45.371 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:45.677 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 09:16:45.779 | INFO     | __main__:main:134 - Kafka producer connected to localhost:9092
+2025-02-06 09:16:45.779 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:46.084 | INFO     | utils.utils_producer:create_kafka_topic:154 - Creating 'buzzline_db'.
+2025-02-06 09:16:46.143 | INFO     | utils.utils_producer:create_kafka_topic:159 - Topic 'buzzline_db' created successfully.
+2025-02-06 09:16:46.143 | INFO     | __main__:main:142 - Kafka topic 'buzzline_db' is ready.
+2025-02-06 09:16:46.143 | INFO     | __main__:main:147 - STEP 5. Generate messages continuously.
+2025-02-06 09:16:46.143 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:46.143 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:46.194 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:48.244 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs/project_log.log
+2025-02-06 09:16:48.245 | INFO     | __main__:main:164 - Starting Consumer to run continuously.
+2025-02-06 09:16:48.245 | INFO     | __main__:main:165 - Things can fail or get interrupted, so use a try block.
+2025-02-06 09:16:48.245 | INFO     | __main__:main:166 - Moved .env variables into a utils config module.
+2025-02-06 09:16:48.246 | INFO     | __main__:main:168 - STEP 1. Read environment variables using new config functions.
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline_db
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group_db
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: /home/philip/nwmissouri/buzzline-05-philip/data
+2025-02-06 09:16:48.246 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite
+2025-02-06 09:16:48.246 | INFO     | __main__:main:175 - SUCCESS: Read environment variables.
+2025-02-06 09:16:48.246 | INFO     | __main__:main:180 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-06 09:16:48.246 | INFO     | __main__:main:184 - SUCCESS: Deleted database file.
+2025-02-06 09:16:48.246 | INFO     | __main__:main:189 - STEP 3. Initialize a new database with an empty table.
+2025-02-06 09:16:48.246 | INFO     | consumers.db_sqlite_philip:init_db:48 - Calling SQLite init_db() with {db_path=}.
+2025-02-06 09:16:48.246 | INFO     | consumers.db_sqlite_philip:init_db:55 - SUCCESS: Got a cursor to execute SQL.
+2025-02-06 09:16:48.268 | INFO     | consumers.db_sqlite_philip:init_db:75 - SUCCESS: Database initialized and table ready at /home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite.
+2025-02-06 09:16:48.268 | INFO     | __main__:main:196 - STEP 4. Begin consuming and storing messages.
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:97 - Called consume_messages_from_kafka() with:
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:98 -    topic='buzzline_db'
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:99 -    kafka_url='localhost:9092'
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:100 -    group='buzz_group_db'
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:101 -    sql_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:102 -    interval_secs=5
+2025-02-06 09:16:48.268 | INFO     | __main__:consume_messages_from_kafka:104 - Step 1. Verify Kafka Services.
+2025-02-06 09:16:48.268 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: localhost:2181
+2025-02-06 09:16:48.269 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at localhost:2181.
+2025-02-06 09:16:48.269 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:48.574 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'AQw24yRlTRWUUPd2A8Fx3A', 'controller_id': 1001}
+2025-02-06 09:16:48.574 | INFO     | __main__:consume_messages_from_kafka:111 - Step 2. Create a Kafka consumer.
+2025-02-06 09:16:48.574 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:48.574 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline_db' and group ID='buzz_group_db'.
+2025-02-06 09:16:48.676 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-06 09:16:48.676 | INFO     | __main__:consume_messages_from_kafka:122 - Step 3. Verify topic exists.
+2025-02-06 09:16:48.676 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-06 09:16:48.980 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline_db' already exists. 
+2025-02-06 09:16:48.980 | INFO     | __main__:consume_messages_from_kafka:126 - Kafka topic 'buzzline_db' is ready.
+2025-02-06 09:16:48.980 | INFO     | __main__:consume_messages_from_kafka:133 - Step 4. Process messages.
+2025-02-06 09:16:49.087 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:16:49.087 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:49.088 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:49.088 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:16:49.088 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738862206.1434503, 'temperature': 50.81, 'rpm': 4951, 'widgets_produced': 32, 'conveyor_speed': 1.79, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:16:49.088 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:16:49.108 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:16:51.195 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.195 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.195 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.197 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:16:51.197 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.197 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.197 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:16:51.197 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738862211.195303, 'temperature': 56.0, 'rpm': 4054, 'widgets_produced': 13, 'conveyor_speed': 1.51, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:16:51.197 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:16:51.217 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:16:56.195 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.196 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.196 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.197 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:16:56.197 | INFO     | __main__:process_message:55 -    message={'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.197 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.197 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:16:56.197 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 1, 'timestamp': 1738862216.1959248, 'temperature': 53.87, 'rpm': 4673, 'widgets_produced': 127, 'conveyor_speed': 1.87, 'product_quality': 'Bad', 'error_code': 'E202'}
+2025-02-06 09:16:56.197 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:16:56.217 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:17:01.196 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.196 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.196 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.198 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:17:01.198 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.198 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.198 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:17:01.198 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738862221.1963513, 'temperature': 56.1, 'rpm': 4823, 'widgets_produced': 16, 'conveyor_speed': 1.81, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:01.198 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:17:01.217 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:17:06.197 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.197 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.197 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.199 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:17:06.199 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.199 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.199 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:17:06.199 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738862226.1971157, 'temperature': 50.59, 'rpm': 4068, 'widgets_produced': 108, 'conveyor_speed': 1.67, 'product_quality': 'Good', 'error_code': 'E303'}
+2025-02-06 09:17:06.199 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:17:06.220 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:17:11.197 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.198 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.198 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.199 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:17:11.199 | INFO     | __main__:process_message:55 -    message={'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.199 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.199 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:17:11.199 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 2, 'timestamp': 1738862231.1979113, 'temperature': 53.96, 'rpm': 4370, 'widgets_produced': 111, 'conveyor_speed': 1.8, 'product_quality': 'Good', 'error_code': 'E101'}
+2025-02-06 09:17:11.199 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:17:11.204 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:17:16.198 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.198 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.198 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.199 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 09:17:16.200 | INFO     | __main__:process_message:55 -    message={'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.200 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.200 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 09:17:16.200 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 3, 'timestamp': 1738862236.1983414, 'temperature': 53.01, 'rpm': 4353, 'widgets_produced': 95, 'conveyor_speed': 2.0, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 09:17:16.200 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/buzz.sqlite')
+2025-02-06 09:17:16.220 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 09:17:19.695 | WARNING  | __main__:main:202 - Consumer interrupted by user.
+2025-02-06 09:17:19.795 | INFO     | __main__:main:206 - Consumer shutting down.
+2025-02-06 09:17:21.199 | INFO     | __main__:main:157 - STEP 4. Generated message: {'machine_id': 3, 'timestamp': 1738862241.1990612, 'temperature': 52.9, 'rpm': 4404, 'widgets_produced': 182, 'conveyor_speed': 1.56, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:17:21.199 | INFO     | __main__:main:162 - STEP 4a Wrote message to file: {'machine_id': 3, 'timestamp': 1738862241.1990612, 'temperature': 52.9, 'rpm': 4404, 'widgets_produced': 182, 'conveyor_speed': 1.56, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:17:21.199 | INFO     | __main__:main:167 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 3, 'timestamp': 1738862241.1990612, 'temperature': 52.9, 'rpm': 4404, 'widgets_produced': 182, 'conveyor_speed': 1.56, 'product_quality': 'Good', 'error_code': 'E202'}
+2025-02-06 09:17:21.239 | WARNING  | __main__:main:173 - WARNING: Producer interrupted by user.
+2025-02-06 09:17:21.239 | INFO     | __main__:main:179 - Kafka producer closed.
+2025-02-06 09:17:21.239 | INFO     | __main__:main:180 - TRY/FINALLY: Producer shutting down.

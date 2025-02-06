@@ -4,15 +4,16 @@ producer_philip.py
 Stream JSON data to a file and - if available - a Kafka topic.
 
 Example JSON message
-{
-    "message": "I just shared a meme! It was amazing.",
-    "author": "Charlie",
-    "timestamp": "2025-01-29 14:35:20",
-    "category": "humor",
-    "sentiment": 0.87,
-    "keyword_mentioned": "meme",
-    "message_length": 42
+{"machine_id": 2,
+"timestamp": 1738803338.650943,
+"temperature": 50.56,
+"rpm": 4395,
+"widgets_produced": 74,
+"conveyor_speed": 1.96,
+"product_quality": "Good",
+"error_code": "E202"
 }
+
 
 Environment variables are in utils/utils_config module. 
 """

@@ -1,4 +1,8 @@
-{"machine_id": 1, "timestamp": 1738803323.6496098, "temperature": 57.91, "rpm": 4780, "widgets_produced": 177, "conveyor_speed": 1.74, "product_quality": "Good", "error_code": "E202"}
-{"machine_id": 1, "timestamp": 1738803328.6500046, "temperature": 57.86, "rpm": 4316, "widgets_produced": 115, "conveyor_speed": 1.73, "product_quality": "Good", "error_code": null}
-{"machine_id": 1, "timestamp": 1738803333.650497, "temperature": 51.11, "rpm": 4120, "widgets_produced": 46, "conveyor_speed": 1.51, "product_quality": "Good", "error_code": "E303"}
-{"machine_id": 2, "timestamp": 1738803338.650943, "temperature": 50.56, "rpm": 4395, "widgets_produced": 74, "conveyor_speed": 1.96, "product_quality": "Good", "error_code": "E202"}
+{"machine_id": 1, "timestamp": 1738862206.1434503, "temperature": 50.81, "rpm": 4951, "widgets_produced": 32, "conveyor_speed": 1.79, "product_quality": "Good", "error_code": null}
+{"machine_id": 1, "timestamp": 1738862211.195303, "temperature": 56.0, "rpm": 4054, "widgets_produced": 13, "conveyor_speed": 1.51, "product_quality": "Good", "error_code": "E202"}
+{"machine_id": 1, "timestamp": 1738862216.1959248, "temperature": 53.87, "rpm": 4673, "widgets_produced": 127, "conveyor_speed": 1.87, "product_quality": "Bad", "error_code": "E202"}
+{"machine_id": 2, "timestamp": 1738862221.1963513, "temperature": 56.1, "rpm": 4823, "widgets_produced": 16, "conveyor_speed": 1.81, "product_quality": "Good", "error_code": "E101"}
+{"machine_id": 2, "timestamp": 1738862226.1971157, "temperature": 50.59, "rpm": 4068, "widgets_produced": 108, "conveyor_speed": 1.67, "product_quality": "Good", "error_code": "E303"}
+{"machine_id": 2, "timestamp": 1738862231.1979113, "temperature": 53.96, "rpm": 4370, "widgets_produced": 111, "conveyor_speed": 1.8, "product_quality": "Good", "error_code": "E101"}
+{"machine_id": 3, "timestamp": 1738862236.1983414, "temperature": 53.01, "rpm": 4353, "widgets_produced": 95, "conveyor_speed": 2.0, "product_quality": "Good", "error_code": null}
+{"machine_id": 3, "timestamp": 1738862241.1990612, "temperature": 52.9, "rpm": 4404, "widgets_produced": 182, "conveyor_speed": 1.56, "product_quality": "Good", "error_code": "E202"}
