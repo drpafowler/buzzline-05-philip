@@ -7107,3 +7107,13 @@
 2025-02-06 13:12:03.237 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 4, 'timestamp': 1738876323.2355359, 'temperature': 54.17, 'rpm': 4018, 'widgets_produced': 139, 'conveyor_speed': 1.9, 'product_quality': 'Good', 'error_code': 'E101'}
 2025-02-06 13:12:03.237 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/machine.sqlite')
 2025-02-06 13:12:03.263 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.
+2025-02-06 13:12:08.236 | INFO     | __main__:main:156 - STEP 4. Generated message: {'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.236 | INFO     | __main__:main:161 - STEP 4a Wrote message to file: {'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.236 | INFO     | __main__:main:166 - STEP 4b Sent message to Kafka topic 'buzzline_db': {'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.237 | INFO     | __main__:process_message:54 - Called process_message() with:
+2025-02-06 13:12:08.237 | INFO     | __main__:process_message:55 -    message={'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.237 | INFO     | __main__:process_message:67 - Processed message: {'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.237 | INFO     | consumers.db_sqlite_philip:insert_message:93 - Calling SQLite insert_message() with:
+2025-02-06 13:12:08.237 | INFO     | consumers.db_sqlite_philip:insert_message:94 - message={'machine_id': 4, 'timestamp': 1738876328.236101, 'temperature': 57.27, 'rpm': 4377, 'widgets_produced': 54, 'conveyor_speed': 1.85, 'product_quality': 'Good', 'error_code': None}
+2025-02-06 13:12:08.237 | INFO     | consumers.db_sqlite_philip:insert_message:95 - db_path=PosixPath('/home/philip/nwmissouri/buzzline-05-philip/data/machine.sqlite')
+2025-02-06 13:12:08.260 | INFO     | consumers.db_sqlite_philip:insert_message:119 - Inserted one message into the database.

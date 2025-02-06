@@ -84,3 +84,4 @@
 {"machine_id": 3, "timestamp": 1738876313.2347064, "temperature": 56.48, "rpm": 4563, "widgets_produced": 132, "conveyor_speed": 1.96, "product_quality": "Good", "error_code": null}
 {"machine_id": 4, "timestamp": 1738876318.235089, "temperature": 52.28, "rpm": 4685, "widgets_produced": 176, "conveyor_speed": 1.65, "product_quality": "Good", "error_code": "E303"}
 {"machine_id": 4, "timestamp": 1738876323.2355359, "temperature": 54.17, "rpm": 4018, "widgets_produced": 139, "conveyor_speed": 1.9, "product_quality": "Good", "error_code": "E101"}
+{"machine_id": 4, "timestamp": 1738876328.236101, "temperature": 57.27, "rpm": 4377, "widgets_produced": 54, "conveyor_speed": 1.85, "product_quality": "Good", "error_code": null}
